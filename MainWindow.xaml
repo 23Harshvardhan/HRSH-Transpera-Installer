@@ -25,8 +25,8 @@
         </Rectangle>
         <CheckBox x:Name="chkCleanInstall" Content="Clean Install" HorizontalAlignment="Left" Margin="10,0,0,10" Foreground="White" Height="15" VerticalAlignment="Bottom"/>
         <Button x:Name="btnInstall" Content="INSTALL" Margin="0,0,10,10" HorizontalAlignment="Right" Width="109" Height="33" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="18" Click="btnInstall_Click"/>
-        
-        <ProgressBar x:Name="progInstall" Height="23" Margin="20,160,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+
+        <ProgressBar x:Name="progInstall" Height="23" Margin="20,160,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Foreground="Violet">
             <ProgressBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -36,6 +36,8 @@
                 </TransformGroup>
             </ProgressBar.RenderTransform>
         </ProgressBar>
+        <Label x:Name="lblDownloading" Content="Downloading" HorizontalAlignment="Left" Margin="15,177,0,0" VerticalAlignment="Top" Foreground="White" Visibility="Hidden"/>
+        <Label x:Name="lblPercentage" Content="0%" Margin="0,177,19,0" VerticalAlignment="Top" Foreground="White" HorizontalContentAlignment="Right" HorizontalAlignment="Right" Width="41" Visibility="Hidden"/>
 
     </Grid>
 </Window>

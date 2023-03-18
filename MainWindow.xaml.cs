@@ -30,8 +30,9 @@ namespace HRSH_Transpera_Installer
         {
             InitializeComponent();
 
-            // Event to be called while file is being downloaded.
+            // Events to be called while file is being downloaded and once the file is finished downloading.
             client.DownloadProgressChanged += Client_DownloadProgressChanged;
+            client.DownloadFileCompleted += Client_DownloadFileCompleted;
         }
 
         private void btnInstall_Click(object sender, RoutedEventArgs e)
@@ -39,6 +40,8 @@ namespace HRSH_Transpera_Installer
             chkCleanInstall.Visibility = Visibility.Hidden;
             btnInstall.Visibility = Visibility.Hidden;
             progInstall.Visibility = Visibility.Visible;
+            lblDownloading.Visibility = Visibility.Visible;
+            lblPercentage.Visibility = Visibility.Visible;
 
             if (chkCleanInstall.IsChecked == true)
             {
@@ -46,12 +49,12 @@ namespace HRSH_Transpera_Installer
                 {
                     System.IO.File.Delete(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\HRSH\Transpera\HRSH-Transpera.exe");
                 }
-                if(Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\Transpera"))
+                if (Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\Transpera"))
                 {
                     Directory.Delete(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData) + @"\HRSH\Transpera", true);
                 }
             }
-            
+
             if (!Directory.Exists(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\HRSH\Transpera\"))
             {
                 Directory.CreateDirectory(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\HRSH\Transpera\");
@@ -60,7 +63,18 @@ namespace HRSH_Transpera_Installer
             Uri uri = new Uri("https://an0maly.blob.core.windows.net/transpera/HRSH-Transpera.exe");
 
             client.DownloadFileAsync(uri, Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\HRSH\Transpera\HRSH-Transpera.exe");
+        }
 
+        #region ========== PROGESS BAR EVENTS FOR CLIENT ==========
+
+        private void Client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
+        {
+            progInstall.Value = e.ProgressPercentage;
+            lblPercentage.Content = e.ProgressPercentage.ToString() + "%";
+        }
+
+        private void Client_DownloadFileCompleted(object sender, System.ComponentModel.AsyncCompletedEventArgs e)
+        {
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string exePath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\HRSH\Transpera\HRSH-Transpera.exe";
 
@@ -78,13 +92,6 @@ namespace HRSH_Transpera_Installer
 
             MessageBox.Show("Installation Successful!", "Happy Hacking", MessageBoxButton.OK);
             this.Close();
-        }
-
-        #region ========== PROGESS BAR EVENTS FOR CLIENT ==========
-
-        private void Client_DownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
-        {
-            
         }
 
         #endregion

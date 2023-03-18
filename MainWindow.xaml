@@ -13,7 +13,7 @@
         <Label Content="INSTALLER" Margin="0,4,10,0" VerticalAlignment="Top" Foreground="White" FontSize="18" HorizontalAlignment="Right" Width="100"/>
         <Label Content="HRSH" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" HorizontalAlignment="Left" Width="100" FontWeight="Bold"/>
         <Label Content="Transpera" Margin="10,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="100"/>
-        <Rectangle Fill="#33FFFFFF" RenderTransformOrigin="0.5,0.5" Height="173" VerticalAlignment="Top" Margin="0,84,0,0">
+        <Rectangle Fill="#33FFFFFF" RenderTransformOrigin="0.5,0.5" Height="120" VerticalAlignment="Top" Margin="0,137,0,0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -26,7 +26,7 @@
         <CheckBox x:Name="chkCleanInstall" Content="Clean Install" HorizontalAlignment="Left" Margin="10,0,0,10" Foreground="White" Height="15" VerticalAlignment="Bottom"/>
         <Button x:Name="btnInstall" Content="INSTALL" Margin="0,0,10,10" HorizontalAlignment="Right" Width="109" Height="33" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="18" Click="btnInstall_Click"/>
 
-        <ProgressBar x:Name="progInstall" Height="23" Margin="20,160,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Hidden" Foreground="Violet">
+        <ProgressBar x:Name="progInstall" Height="23" Margin="20,160,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Foreground="Violet" Visibility="Hidden">
             <ProgressBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>

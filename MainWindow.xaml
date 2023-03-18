@@ -5,36 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HRSH_Transpera_Installer"
         mc:Ignorable="d"
-        Title="HRSH Transpera Installer" Height="450" Width="450" ResizeMode="NoResize" Background="#FF000C2B">
+        Title="HRSH Transpera Installer" Height="273" Width="450" ResizeMode="NoResize" Icon="/Img/Icon.ico">
+    <Window.Background>
+        <ImageBrush ImageSource="/Img/bg.jpg"/>
+    </Window.Background>
     <Grid>
         <Label Content="INSTALLER" Margin="0,4,10,0" VerticalAlignment="Top" Foreground="White" FontSize="18" HorizontalAlignment="Right" Width="100"/>
-        <Label Content="HRSH" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="100"/>
-        <Label Content="Transpera" Margin="10,21,0,0" VerticalAlignment="Top" Foreground="White" FontSize="12" HorizontalAlignment="Left" Width="100"/>
-        <Rectangle HorizontalAlignment="Left" Height="203" VerticalAlignment="Top" Width="508" Fill="#33FFFFFF" Margin="-225,81,0,0" RenderTransformOrigin="0.5,0.5">
+        <Label Content="HRSH" Margin="10,4,0,0" VerticalAlignment="Top" Foreground="White" FontSize="24" HorizontalAlignment="Left" Width="100" FontWeight="Bold"/>
+        <Label Content="Transpera" Margin="10,26,0,0" VerticalAlignment="Top" Foreground="White" FontSize="18" HorizontalAlignment="Left" Width="100"/>
+        <CheckBox x:Name="chkCleanInstall" Content="Clean Install" HorizontalAlignment="Left" Margin="10,0,0,10" Foreground="White" Height="15" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnInstall" Content="INSTALL" Margin="0,0,10,10" HorizontalAlignment="Right" Width="109" Height="33" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="18" Click="btnInstall_Click"/>
+        <Rectangle Fill="#33FFFFFF" RenderTransformOrigin="0.5,0.5" Height="173" VerticalAlignment="Top" Margin="0,84,0,0">
             <Rectangle.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="-70.066"/>
+                    <RotateTransform Angle="0"/>
                     <TranslateTransform/>
                 </TransformGroup>
             </Rectangle.RenderTransform>
         </Rectangle>
-        <Rectangle HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="286" Fill="White" Margin="0,251,0,0"/>
-        <Rectangle HorizontalAlignment="Left" Height="38" VerticalAlignment="Top" Width="139" Fill="White" Margin="311,276,0,0"/>
-        <Rectangle HorizontalAlignment="Left" Height="36" VerticalAlignment="Top" Width="57" Fill="White" Margin="270,264,0,0" RenderTransformOrigin="0.5,0.5">
-            <Rectangle.RenderTransform>
+        <ProgressBar x:Name="progInstall" Height="23" Margin="20,160,20,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Visibility="Hidden">
+            <ProgressBar.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
                     <SkewTransform/>
-                    <RotateTransform Angle="35.57"/>
+                    <RotateTransform Angle="-0.036"/>
                     <TranslateTransform/>
                 </TransformGroup>
-            </Rectangle.RenderTransform>
-        </Rectangle>
-        <CheckBox x:Name="chkCleanInstall" Content="Clean Install" HorizontalAlignment="Left" Margin="10,0,0,87" Foreground="White" Height="15" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnInstall" Content="INSTALL" Margin="0,0,44,33" HorizontalAlignment="Right" Width="109" Height="33" VerticalAlignment="Bottom" FontWeight="Bold" FontSize="18" Click="btnInstall_Click"/>
-        <Image HorizontalAlignment="Center" Height="154" Margin="0,70,0,0" VerticalAlignment="Top" Width="270" Source="/Img/counter-strike-symbol-png-logo-11.png"/>
+            </ProgressBar.RenderTransform>
+        </ProgressBar>
 
     </Grid>
 </Window>
